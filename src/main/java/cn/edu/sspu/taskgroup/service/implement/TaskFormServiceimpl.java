@@ -1,6 +1,5 @@
 package cn.edu.sspu.taskgroup.service.implement;
 
-import cn.edu.sspu.DocReadWriteApplication;
 import cn.edu.sspu.signatureanddate.domain.StudentSignatureInfo;
 import cn.edu.sspu.signatureanddate.domain.StudentSignatureTable;
 import cn.edu.sspu.signatureanddate.domain.TeacherSignatureTable;
@@ -22,7 +21,7 @@ import org.apache.poi.xwpf.usermodel.*;
 import org.apache.xmlbeans.XmlException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import javax.servlet.http.HttpServletResponse;
+
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -44,7 +43,7 @@ public class TaskFormServiceimpl extends ServiceImpl<TaskFormDAO, TaskForm> impl
     StudentSignatureInfoServiceImpl studentSignatureInfoService;
     @Autowired
     StudentSignatureTableImpl studentSignatureTableService;
-     StringBuilder sb = new StringBuilder(File.separator);
+    StringBuilder sb = new StringBuilder(File.separator);
     String userpath = sb.append("home").append(File.separator).append("wwwserver").append(File.separator).toString();
 
     public R createword(String Sno) throws IOException, OpenXML4JException, XmlException {
@@ -71,7 +70,7 @@ public class TaskFormServiceimpl extends ServiceImpl<TaskFormDAO, TaskForm> impl
         String property = System.getProperty("user.dir");
 
 
-        File file = new File("./assignmentbook.docx");
+        File file = new File("./resource/assignmentbook.docx");
         FileInputStream fis = null;
         XWPFDocument document = null;
         XWPFWordExtractor extractor = null;
